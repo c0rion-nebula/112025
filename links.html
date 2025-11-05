@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -26,37 +25,30 @@
 
     <hr>
 
-    <div class="music-flap">
-      <button class="flap-toggle" aria-expanded="false" aria-controls="music-area">🎧 Tap to open playlists</button>
+    <!-- 🎧 Always-visible playlists -->
+    <div class="music-flap always-show">
+      <p class="hint">Playlists update automatically when you add songs in Spotify.</p>
+      <div class="spotify-embed">
+        <iframe src="https://open.spotify.com/embed/playlist/4fsR4P684IEfUI59tpcbAp"
+          width="300" height="380" frameborder="0" allow="encrypted-media"></iframe>
 
-      <div id="music-area" class="music-area" hidden>
-        <p class="hint">Playlists update automatically when you add songs in Spotify.</p>
-        <div class="spotify-embed">
-          <iframe src="https://open.spotify.com/embed/playlist/4fsR4P684IEfUI59tpcbAp" width="300" height="380" frameborder="0" allowfullscreen allow="encrypted-media"></iframe>
-
-          <iframe src="https://open.spotify.com/embed/playlist/3NsCbFz4iNWMoAtiJY8AR6" width="300" height="380" frameborder="0" allowfullscreen allow="encrypted-media"></iframe>
-        </div>
+        <iframe src="https://open.spotify.com/embed/playlist/3NsCbFz4iNWMoAtiJY8AR6"
+          width="300" height="380" frameborder="0" allow="encrypted-media"></iframe>
       </div>
-    </div>
-
-    <!-- 🎵 Your audio and turntable -->
-    <audio id="music" controls>
-      <source src="your-song.mp3" type="audio/mpeg">
-    </audio>
-
-    <div class="turntable">
-      <div class="record"></div>
     </div>
 
     <p class="hint">Edit these links in <code>links.html</code>.</p>
   </main>
 
+  <!-- 🎶 Decorative turntable in corner -->
+  <div class="turntable">
+    <div class="record"></div>
+  </div>
+
   <footer class="footer">
     <p>Add any special websites or playlists here.</p>
   </footer>
-<script>
-  console.log("✅ script.js is linked!");
-</script>
+
   <script src="js/script.js"></script>
 </body>
 </html>
