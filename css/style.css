@@ -125,25 +125,25 @@ body {
 /* === Turntable Decoration === */
 .turntable {
   position: fixed;
-  bottom: -60px; /* peeking from edge */
-  right: -60px;
-  width: 240px;
-  height: 240px;
+  bottom: -100px;  /* push it down so only top half shows */
+  right: -100px;   /* push it right so only top half shows */
+  width: 260px;
+  height: 260px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
-  pointer-events: none;
-  opacity: 0.9;
+  z-index: 5;
+  pointer-events: none;  /* makes sure you can’t accidentally tap it */
+  opacity: 0.8;
 }
 
 .record {
-  width: 200px;
-  height: 200px;
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
   background: radial-gradient(circle, #444 40%, #222 100%);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  animation: spin 10s linear infinite;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation: spin 8s linear infinite;
 }
 
 .record::before {
@@ -151,8 +151,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   background: #ff9eb5;
   border-radius: 50%;
   transform: translate(-50%, -50%);
