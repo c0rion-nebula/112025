@@ -84,3 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+<script>
+  const turntable = document.querySelector('.turntable');
+  const record = document.querySelector('.record');
+
+  record.addEventListener('click', () => {
+    turntable.classList.toggle('playing');
+  });
+</script>
