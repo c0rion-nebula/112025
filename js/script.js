@@ -9,8 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const expanded = btn.getAttribute("aria-expanded") === "true";
       btn.setAttribute("aria-expanded", expanded ? "false" : "true");
       musicArea.hidden = expanded;
-      if (!expanded) setTimeout(() => musicArea.classList.add("show"), 10);
-      else musicArea.classList.remove("show");
+      if (!expanded) {
+        setTimeout(() => musicArea.classList.add("show"), 10);
+      } else {
+        musicArea.classList.remove("show");
+      }
     });
   }
 
@@ -49,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const isEditable =
       tag === "INPUT" || tag === "TEXTAREA" || document.activeElement?.isContentEditable;
     if (isEditable) return;
+
     const key = (e.key || "").toLowerCase();
     if (key === "r") {
       showEmojis(["⋆˚˖𓂃.☘︎ ݁˖", "💌", "𓈒⟡₊⋆∘", "💫"], 8);
@@ -76,29 +80,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const hand = document.querySelector(".hand");
   const body = document.body;
 
-  // Start record + stars after a short delay
+  // Start record spin and stars after a short delay
   setTimeout(() => {
     body.classList.add("playing");
-    if (record) record.classList.add("spin");
-  }, 800);
+    if (record) {
+      record.classList.add("spin");
+      record.style.animationPlayState = "running";
+    }
+  }, 1000);
 
-  // Animate the hand only once on load, then stop
+  // Animate the tonearm ONCE and keep it in place
   if (hand) {
-    hand.style.transition = "transform 2.5s cubic-bezier(0.55, 0, 0.1, 1)";
     hand.style.transformOrigin = "top right";
+    hand.style.transition = "transform 2.5s cubic-bezier(0.55, 0, 0.1, 1)";
 
-    // Move arm toward record only once per refresh
+    // Move arm gently onto record
     setTimeout(() => {
-      hand.style.transform = "rotate(18deg)";
-    }, 1000);
+      hand.style.transform = "rotate(19deg)";
+    }, 1500);
 
-    // Make sure it stays in place after animation
+    // Remove transition after movement to keep it steady
     hand.addEventListener("transitionend", () => {
       hand.style.transition = "none";
     });
   }
 
-  // Pause record spin when tab is hidden
+  // Pause record spin when tab not visible
   document.addEventListener("visibilitychange", () => {
     if (record) {
       record.style.animationPlayState = document.hidden ? "paused" : "running";
