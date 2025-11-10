@@ -53,8 +53,6 @@ body.home-page::before {
 }
 
 
-
-/* 🌈 OTHER PAGE THEMES */
 body.subs-page {
   background-color: #f3e1c9;
 }
@@ -161,11 +159,11 @@ h1, h2 {
 /* PLINTH BASE */
 .plinth {
   position: absolute;
-  bottom: -30px;
-  right: 0;
+  bottom: 30px;
+  right: 30;
   width: 220px;
-  height: 40px;
-  background: linear-gradient(180deg, #d5b893, #b48a60);
+  height: 220px;
+  background: linear-gradient(180deg, #3B0D0D, #1F0404);
   border-radius: 8px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.2);
   z-index: 0;
